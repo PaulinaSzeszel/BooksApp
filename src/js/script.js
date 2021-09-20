@@ -11,7 +11,7 @@
       list: '.books-list',
     },
     filters: '.filters',
-  }
+  };
 
   class BooksList {
     constructor() {
@@ -72,7 +72,7 @@
             thisBooksList.options.favoriteBooks.splice(thisBooksList.options.favoriteBooks.indexOf(bookId), 1);
           }
         }
-      })
+      });
       this.DOM.filtersForm.addEventListener('click', function (event) {
         const element = event.target;
 
@@ -85,13 +85,13 @@
           }
           thisBooksList.filterBooks();
         }
-      })
+      });
     }
     filterBooks() {
       for (const bookId in this.data) {
         const book = this.data[bookId];
 
-        const filteredElement = this.DOM.bookContainer.querySelector('.book__image[data-id=\"' + book.id + '\"]');
+        const filteredElement = this.DOM.bookContainer.querySelector('.book__image[data-id="" + book.id + ""]');
         filteredElement.classList.remove('hidden');
 
         for (const detailName in book.details) {
@@ -100,7 +100,7 @@
           if (!detailValue && this.options.filters.includes(detailName)) {
             filteredElement.classList.add('hidden');
             break;
-          };
+          }
         }
       }
     }
