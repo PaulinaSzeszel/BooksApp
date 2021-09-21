@@ -89,21 +89,22 @@
     }
     filterBooks() {
       for (const bookId in this.data) {
-        const book = this.data[bookId];
+       const book = this.data[bookId];
 
-        const filteredElement = this.DOM.bookContainer.querySelector('.book__image[data-id="" + book.id + ""]');
-        filteredElement.classList.remove('hidden');
+       const filteredElement = this.DOM.bookContainer.querySelector('.book__image[data-id=\"' + book.id + '\"]');
 
-        for (const detailName in book.details) {
-          const detailValue = book.details[detailName];
+       filteredElement.classList.remove('hidden');
 
-          if (!detailValue && this.options.filters.includes(detailName)) {
-            filteredElement.classList.add('hidden');
-            break;
-          }
-        }
-      }
-    }
+       for (const detailName in book.details) {
+         const detailValue = book.details[detailName];
+
+         if (!detailValue && this.options.filters.includes(detailName)) {
+           filteredElement.classList.add('hidden');
+           break;
+         };
+       }
+     }
+   }
     determineRatingBackground(rating) {
       if (rating > 9) {
         this.options.ratingColorOne = 'ff0084';
